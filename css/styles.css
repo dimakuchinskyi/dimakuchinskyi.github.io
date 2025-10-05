@@ -1,0 +1,76 @@
+/* Basic responsive layout and simple styling for the Coldplay site */
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#ffcc00;
+  --muted:#cbd5e1;
+  --container-width:1000px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;background:linear-gradient(180deg,var(--bg),#071226);color:var(--muted);min-height:100vh}
+.container{max-width:var(--container-width);margin:0 auto;padding:1rem}
+
+.site-header{padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.site-title{font-size:2rem;margin:0;color:white}
+.site-subtitle{font-size:1.1rem;margin:0;color:var(--accent)}
+
+.site-nav{margin:0.75rem 0}
+.nav-list{
+  list-style: none; /* прибирає маркери списку */
+  padding: 0; /* прибирає внутрішній відступ ul */
+  margin: 0; /* прибирає зовнішній відступ */
+  display: flex; /* вистроює елементи у горизонтальний ряд */
+  gap: 1rem; /* відстань між пунктами меню */
+  align-items: center; /* вирівнювання по вертикалі */
+}
+.nav-list li{margin:0}
+.nav-list a{
+  color: var(--muted);
+  text-decoration: none; /* прибирає підкреслення */
+  padding: 0.35rem 0.65rem; /* робить більшу клікабельну область */
+  border-radius: 6px; /* округлі кути для фонового ефекту */
+  display: inline-block; /* дозволяє padding та background працювати стабільно */
+  transition: background-color 150ms ease, color 150ms ease; /* плавний перехід кольору */
+  cursor: pointer; /* підказує що елемент клікабельний */
+}
+
+/* hover — ефект при наведенні миші */
+.nav-list a:hover{
+  background: rgba(255,204,0,0.12); /* легкий жовтий фон (accent) */
+  color: white;
+}
+
+/* active — ефект при натисканні */
+.nav-list a:active{
+  background: rgba(255,204,0,0.24); /* більш насичений жовтий при натисканні */
+  color: white;
+}
+
+/* focus — для клавіатурної доступності */
+.nav-list a:focus{
+  outline: 2px solid rgba(255,204,0,0.5);
+  outline-offset: 2px;
+}
+
+.site-main{display:block;padding:1rem 0}
+.content-section{background:rgba(255,255,255,0.02);padding:1rem;border-radius:8px;margin-bottom:1rem}
+.section-title{margin-top:0;color:var(--accent)}
+
+.hero-img{width:100%;height:auto;border-radius:8px;display:block}
+.img-responsive{max-width:100%;height:auto;border-radius:6px}
+
+.table{width:100%;border-collapse:collapse;margin-top:0.5rem}
+.table th,.table td{padding:0.6rem 0.75rem;border-bottom:1px solid rgba(255,255,255,0.03);text-align:left}
+.table thead th{background:rgba(255,255,255,0.02);color:var(--muted)}
+
+.site-footer{padding:1rem 0;border-top:1px solid rgba(255,255,255,0.04);text-align:center;color:#9aa8bf}
+
+@media (min-width:900px){
+  .site-main{display:grid;grid-template-columns:2fr 1fr;gap:1rem;align-items:start}
+  #sidebar{grid-column:2}
+}
+
+@media (max-width:899px){
+  .nav-list{flex-wrap:wrap}
+}
